@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript Quiz</title>
+<style>
+body {
+background-image: url("social.jpg");
+font-family: Helvetica;
+}
+
+#main {
+width: 60%;
+border: 2px black solid;
+margin: auto;
+margin-top: -2px;
+padding: 10px;
+background:-webkit-radial-gradient(center, ellipse cover, rgba(255,249,140,1) 0%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 99%, rgba(255,255,255,1) 100%);
+}
+
+#header {
+margin-top: 0px;
+border: 2px black solid;
+padding: 5px;
+height: 250px;
+color: black;
+width: 60.7%;
+margin: auto;
+background-image: url("sm5.jpg");
+}
+
+#headtext {
+width: 45%;
+border: none;
+margin: auto;
+width: 300px;
+height: 250px;
+border: 2px black solid;
+margin-top: -7px;
+background:-webkit-radial-gradient(center, ellipse cover, rgba(255,249,140,1) 0%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 99%, rgba(255,255,255,1) 100%);
+}
+
+</style>
+</head>
+<body>
+<div id="header"><!-- open header div -->
+<img src='https://pbs.twimg.com/media/CRyuemGWIAAJTI7.jpg' width='250' height='250' align='left'/>
+<center><h1><br /><br />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<strong>What Social Media <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPlatform Are You? </strong></h1></center>
+</div><!-- close header div -->
+<div id="main"><!-- open main div -->
+
+
+<form  id="form1" action=" ">
+<p>First things first, what is your favorite social media platform?</p>
+<input type="radio" name="favorite" value="8" />Facebook<br />
+<input type="radio" name="favorite" value="4" />Snapchat<br />
+<input type="radio" name="favorite" value="6" />Instagram<br />
+<input type="radio" name="favorite" value="2" />Twitter<br />
+
+<p>How many social media platforms do you use?</p>
+<input type="radio" name="many" value="2" />0-1<br />
+<input type="radio" name="many" value="4" />2-3<br />
+<input type="radio" name="many" value="6" />4-5<br />
+<input type="radio" name="many" value="8" />6+<br />
+
+<p>In high school it would have been least surprising if you had been voted...</p>
+<input type="radio" name="vote" value="4" />Most likely to always leave them wanting more <br />
+<input type="radio" name="vote" value="8" />Mr./Ms. Congeniality <br />
+<input type="radio" name="vote" value="2" />The lone wolf <br />
+<input type="radio" name="vote" value="6" />Best hair <br />
+
+<p>When a social opportunity arises but you have a ton of work to do, what do you do?</p>
+<input type="radio" name="opp" value="2" />Your work<br />
+<input type="radio" name="opp" value="6" />Hustle to get your work done and make time for your friends <br />
+<input type="radio" name="opp" value="8" />Blow off your responsibilities and see your friends! <br />
+<input type="radio" name="opp" value="4" />Make a brief appearance but hurry back to do your work <br />
+
+<p>Finally, what's your exit strategy at a party or social gathering?</p>
+<input type="radio" name="exit" value="8" />Give a thoughtful goodbye to everyone in attendance, maybe make some plans for later <br />
+<input type="radio" name="exit" value="4" />Peace out without saying a word <br />
+<input type="radio" name="exit" value="2" />Well, you probably didn't go in the first place, so...<br />
+<input type="radio" name="exit" value="6" />Say goodbye to the people you came with <br /> <br />
+
+<input type="submit" value="Submit">
+</form>
+
+
+
+<p>Your social score is: <span id="score">__</span></p>
+<p id="score2"></p>
+</div>
+
+<script>
+document.getElementById("form1").onsubmit=function() {
+    favoritevar = document.getElementsByName("favorite");
+	for(i=0; i<favoritevar.length; i++) {
+	   if (favoritevar[i].checked) {
+	   fscore = parseInt(favoritevar[i].value);
+	   }
+	   }
+	   
+	manyvar = document.getElementsByName("many");
+	   for(i=0; i<manyvar.length; i++) {
+	   if (manyvar[i].checked) {
+	   mscore = parseInt(manyvar[i].value);
+	   }
+	   }
+	   
+	votevar = document.getElementsByName("vote");
+	   for(i=0; i<votevar.length; i++) {
+	   if (votevar[i].checked) {
+	   vscore = parseInt(votevar[i].value);
+	   }
+	   }
+	   
+	oppvar = document.getElementsByName("opp");
+	   for(i=0; i<oppvar.length; i++) {
+	   if (oppvar[i].checked) {
+	   oscore = parseInt(oppvar[i].value);
+	   }
+	   }
+	
+	exitvar = document.getElementsByName("exit");
+	    for(i=0; i<exitvar.length; i++) {
+		if (exitvar[i].checked) {
+		escore = parseInt(exitvar[i].value);
+		}
+		}
+	    
+	   
+	   
+	result = fscore + mscore + vscore + oscore + escore;
+	document.getElementById("score").innerHTML = result;
+    if (result == 10) {result2 = "You're Twitter! You don't do much life-sharing or peering into the lives of others. You're more about quips and .gifs.<br /><br /><img src='https://pixabay.com/static/uploads/photo/2015/03/10/17/30/twitter-667462_960_720.png' width='300' />"};
+    if (result == 12) {result2 = "You're Snapchat! Sure, you share your life and you're interested in other people, but there's always an expiration date...<br /><br /><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Snapchat_Logo.png/480px-Snapchat_Logo.png' width='300' />"};
+    if (result == 14) {result2 = "You're Snapchat! Sure, you share your life and you're interested in other people, but there's always an expiration date...<br /><br /><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Snapchat_Logo.png/480px-Snapchat_Logo.png' width='300' />"};   
+    if (result == 16) {result2 = "You're Snapchat! Sure, you share your life and you're interested in other people, but there's always an expiration date...<br /><br /><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Snapchat_Logo.png/480px-Snapchat_Logo.png' width='300' />"};
+	if (result == 18) {result2 = "You're Snapchat! Sure, you share your life and you're interested in other people, but there's always an expiration date...<br /><br /><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Snapchat_Logo.png/480px-Snapchat_Logo.png' width='300' />"};
+	if (result == 20) {result2 = "You're Snapchat! Sure, you share your life and you're interested in other people, but there's always an expiration date...<br /><br /><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Snapchat_Logo.png/480px-Snapchat_Logo.png' width='300' />"};
+	if (result == 22) {result2 = "You're Instagram! You share a curated version of life that is driven more by looking than interacting.<br /><br /><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Instagram_Logo.jpg/600px-Instagram_Logo.jpg' width='300' />"};
+	if (result == 24) {result2 = "You're Instagram! You share a curated version of life that is driven more by looking than interacting.<br /><br /><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Instagram_Logo.jpg/600px-Instagram_Logo.jpg' width='300' />"};
+	if (result == 26) {result2 = "You're Instagram! You share a curated version of life that is driven more by looking than interacting.<br /><br /><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Instagram_Logo.jpg/600px-Instagram_Logo.jpg' width='300' />"};
+	if (result == 28) {result2 = "You're Instagram! You share a curated version of life that is driven more by looking than interacting.<br /><br /><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Instagram_Logo.jpg/600px-Instagram_Logo.jpg' width='300' />"};
+	if (result == 30) {result2 = "You're Instagram! You share a curated version of life that is driven more by looking than interacting.<br /><br /><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Instagram_Logo.jpg/600px-Instagram_Logo.jpg' width='300' />"};
+	if (result == 32) {result2 = "You're Facebook! You interact on every level and put it all out there!<br /><br /><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/F_icon.svg/2000px-F_icon.svg.png' width='300' />"};
+	if (result == 34) {result2 = "You're Facebook! You interact on every level and put it all out there!<br /><br /><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/F_icon.svg/2000px-F_icon.svg.png' width='300' />"};
+    if (result == 36) {result2 = "You're Facebook! You interact on every level and put it all out there!<br /><br /><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/F_icon.svg/2000px-F_icon.svg.png' width='300' />"};
+	if (result == 38) {result2 = "You're Facebook! You interact on every level and put it all out there!<br /><br /><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/F_icon.svg/2000px-F_icon.svg.png' width='300' />"};
+	if (result == 40) {result2 = "You're Facebook! You interact on every level and put it all out there!<br /><br /><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/F_icon.svg/2000px-F_icon.svg.png' width='300' />"};
+	document.getElementById("score2").innerHTML = result2;
+
+return false; 
+} 
+
+</script>
+
+
+
+</body>
+</html>
